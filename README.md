@@ -1,3 +1,3 @@
 # aula03-devops-crescer
 
-Teste pipeline hello-wprld!!!!!
+Teste pipeline hello-world!!!!!
