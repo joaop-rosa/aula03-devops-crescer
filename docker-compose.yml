@@ -1,0 +1,32 @@
+version: "3.9"
+services:
+
+  mongodb:
+    image: mongo:4.2.6
+    container_name: hello-docker-mongo
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=password
+    volumes:
+      - mongodb_volume:/data/db
+    ports:
+      - "27017:27017"
+    networks:
+      - app
+
+  web:
+    container_name: hello-docker-compose
+    build: .
+    ports:
+      - "9320:8080"
+    environment:
+      - spring.data.mongodb.uri=mongodb://mongodb:4OzjWCYuWq9nMMoi@ac-iusibbd-shard-00-00.cbdadbx.mongodb.net:27017,ac-iusibbd-shard-00-01.cbdadbx.mongodb.net:27017,ac-iusibbd-shard-00-02.cbdadbx.mongodb.net:27017/?ssl=true&replicaSet=atlas-saym5r-shard-0&authSource=admin&retryWrites=true&w=majoritymongodb://mongodb:<password>@ac-iusibbd-shard-00-00.cbdadbx.mongodb.net:27017,ac-iusibbd-shard-00-01.cbdadbx.mongodb.net:27017,ac-iusibbd-shard-00-02.cbdadbx.mongodb.net:27017/?ssl=true&replicaSet=atlas-saym5r-shard-0&authSource=admin&retryWrites=true&w=majority
+    networks:
+      - app
+    depends_on:
+      - mongodb
+
+volumes :
+  mongodb_volume :
+networks :
+  app:
