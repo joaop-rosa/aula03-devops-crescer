@@ -20,7 +20,7 @@ services:
     ports:
       - "9320:8080"
     environment:
-      - spring.data.mongodb.uri=mongodb://mongodb:4OzjWCYuWq9nMMoi@ac-iusibbd-shard-00-00.cbdadbx.mongodb.net:27017,ac-iusibbd-shard-00-01.cbdadbx.mongodb.net:27017,ac-iusibbd-shard-00-02.cbdadbx.mongodb.net:27017/?ssl=true&replicaSet=atlas-saym5r-shard-0&authSource=admin&retryWrites=true&w=majoritymongodb://mongodb:<password>@ac-iusibbd-shard-00-00.cbdadbx.mongodb.net:27017,ac-iusibbd-shard-00-01.cbdadbx.mongodb.net:27017,ac-iusibbd-shard-00-02.cbdadbx.mongodb.net:27017/?ssl=true&replicaSet=atlas-saym5r-shard-0&authSource=admin&retryWrites=true&w=majority
+      - mongodb.uri=mongodb://root:password@mongodb:27017
     networks:
       - app
     depends_on:
